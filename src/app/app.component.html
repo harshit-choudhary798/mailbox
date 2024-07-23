@@ -1,0 +1,69 @@
+
+<div class="mail-details-container">
+<div class="message-panel-container">
+  <mat-card  style="cursor: pointer;" *ngFor="let message of messages" class="message-card">
+    <mat-card-header (click)="isMailActive = !isMailActive">
+      <div mat-card-avatar class="message-avatar">{{ message.sender[0] }}</div>
+      <div class="header-content">
+        <mat-card-subtitle class="sender">{{ message.sender }}</mat-card-subtitle>
+        <div class="info-container">
+          <mat-card-subtitle class="info">{{ message.info }}</mat-card-subtitle>
+          <span class="date">22-09-2024</span>
+        </div>
+        <mat-card-subtitle class="description">{{ message.description }} messages</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div *ngIf="isMailActive" class="block-2">
+  <div class="email-display-container">
+    <mat-card class="content">
+      <div class="mail-title">
+      <mat-card-title>Traing Detail Reminder</mat-card-title>
+      <mat-card-title class="action-icons-container">
+        <div class="action-icon">
+          <mat-icon class="action-icon-img">reply</mat-icon>
+          <span class="action-icon-label">Reply</span>
+        </div>
+        <div class="action-icon">
+          <mat-icon class="action-icon-img">reply_all</mat-icon>
+          <span class="action-icon-label">Reply All</span>
+        </div>
+        <div class="action-icon">
+          <mat-icon class="action-icon-img">forward</mat-icon>
+          <span class="action-icon-label">Forward</span>
+        </div>
+      </mat-card-title>
+    </div>
+      <mat-card-header>
+        <div mat-card-avatar class="message-avatar">{{ 'H' }}</div>
+        <mat-card-subtitle class="sender">hr.test@demotest.in</mat-card-subtitle>
+        <mat-card-subtitle>From: HR, Test Consulting Pvt Ltd</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content [innerHTML]="emailContent"></mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="!isMailActive" class="block-2">
+  <div class="email-display-container-empty">
+    <div class="letter-image">
+      <div class="animated-mail">
+        <div class="back-fold"></div>
+        <div class="letter">
+          <div class="letter-border"></div>
+          <div class="letter-title"></div>
+          <div class="letter-context"></div>
+          <div class="letter-stamp">
+            <div class="letter-stamp-inner"></div>
+          </div>
+        </div>
+        <div class="top-fold"></div>
+        <div class="body"></div>
+        <div class="left-fold"></div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+    
+  </div>
+</div>
